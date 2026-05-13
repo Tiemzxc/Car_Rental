@@ -1,0 +1,9 @@
+{
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "chat.tools.terminal.autoApprove": {
+        "/^cd \"C:\\\\Users\\\\Admin\\\\OneDrive\\\\Desktop\\\\CAR_RENTAL\"; python - <<'PY'\nimport pathlib\nadmin_files = \\[\n 'src/main/resources/templates/admin/dashboard\\.html',\n 'src/main/resources/templates/admin/brands\\.html',\n 'src/main/resources/templates/admin/vehicles\\.html',\n 'src/main/resources/templates/admin/bookings\\.html',\n 'src/main/resources/templates/admin/testimonials\\.html',\n 'src/main/resources/templates/admin/contact-queries\\.html',\n 'src/main/resources/templates/admin/users\\.html',\n 'src/main/resources/templates/admin/subscribers\\.html',\n 'src/main/resources/templates/admin/page-content\\.html'\n\\]\nfor file in admin_files:\n    p = pathlib\\.Path\\(file\\)\n    txt = p\\.read_text\\(encoding='utf-8'\\)\n    if '<link rel=\"stylesheet\" href=\"https://cdn\\.jsdelivr\\.net/npm/bootstrap@5\\.3\\.2/dist/css/bootstrap\\.min\\.css\" />' in txt:\n        continue\n    txt = txt\\.replace\\('<head>\\\\n    <title>', '<head>\\\\n    <meta charset=\"UTF-8\" />\\\\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\\.0\" />\\\\n    <title>'\\)\n    txt = txt\\.replace\\('<title>', '<title>'\\)\n    txt = txt\\.replace\\('</title>', '</title>\\\\n    <link rel=\"stylesheet\" href=\"https://cdn\\.jsdelivr\\.net/npm/bootstrap@5\\.3\\.2/dist/css/bootstrap\\.min\\.css\" />\\\\n    <link rel=\"stylesheet\" href=\"/css/style\\.css\" />'\\)\n    p\\.write_text\\(txt, encoding='utf-8'\\)\nprint\\('admin style update done'\\)\nPY$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}

@@ -1,0 +1,127 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(145deg, #fdfbff 0%, #e4f2ff 45%, #cfe7ff 100%);
+    color: #123456;
+}
+
+header, .navbar {
+    background: linear-gradient(90deg, #ff6ec4 0%, #7873f5 100%) !important;
+    border-bottom: 4px solid #03dac6;
+}
+
+.navbar-brand, .nav-link {
+    color: #ffffff !important;
+    font-weight: 700;
+}
+
+.nav-link:hover {
+    color: #ffeb3b !important;
+}
+
+.hero {
+    background: linear-gradient(135deg, #ffd4f4 0%, #93d5ff 100%);
+    padding: 90px 0;
+    color: #03204a;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.18);
+}
+
+.hero .btn-primary {
+    background: linear-gradient(135deg, #ff4081 0%, #536dfe 100%);
+    border: none;
+    box-shadow: 0 6px 16px rgba(83, 109, 254, 0.4);
+}
+
+.hero .btn-primary:hover {
+    background: linear-gradient(135deg, #ff6ec4 0%, #7f87ff 100%);
+}
+
+.vehicle-card, .feature-box, .card, .table {
+    border-radius: 18px;
+    border: 2px solid rgba(33, 150, 243, 0.22);
+    box-shadow: 0 10px 25px rgba(13, 71, 161, 0.12);
+}
+
+.vehicle-card:hover, .feature-box:hover, .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 28px rgba(3, 169, 244, 0.22);
+}
+
+.card, .form-control, .form-select, .btn {
+    transition: all 0.25s ease;
+}
+
+.card-title, .card-text, .feature-box h5, h2, h4 {
+    color: #0a2e6a;
+}
+
+.section-highlight {
+    background: linear-gradient(145deg, #fff7e2 0%, #f8ffec 100%);
+    border-left: 6px solid #00bfa5;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.table thead {
+    background: linear-gradient(90deg, #4a148c 0%, #1e88e5 100%);
+    color: #ffffff;
+}
+
+.table tbody tr:nth-child(odd) {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.table tbody tr:nth-child(even) {
+    background: rgba(240, 248, 255, 0.95);
+}
+
+.table th, .table td {
+    border-color: rgba(3, 169, 244, 0.4);
+    vertical-align: middle;
+}
+
+.btn-primary,
+.btn-success,
+.btn-danger,
+.btn-warning,
+.btn-info {
+    border: none;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
+}
+
+.footer-custom, footer {
+    background: linear-gradient(90deg, #020111, #283048);
+    color: #ffffff;
+    font-size: 0.95rem;
+}
+
+.modal-content {
+    border: 1px solid #a2bff8;
+    border-radius: 18px;
+    background: linear-gradient(140deg, #ffffff 0%, #f2f9ff 100%);
+}
+
+.alert {
+    border-radius: 14px;
+    font-weight: 500;
+}
+
+input.form-control:focus,
+select.form-select:focus,
+textarea.form-control:focus {
+    border-color: #1e88e5;
+    box-shadow: 0 0 0 0.2rem rgba(30, 136, 229, 0.25);
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: #ffeb3b;
+}
+
+.sticky-top {
+    position: sticky !important;
+    top: 0;
+    z-index: 1020;
+}

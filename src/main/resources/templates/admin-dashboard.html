@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+<div class="d-flex" style="min-height:100vh;">
+    <aside class="bg-dark text-white p-3" style="width:250px;">
+        <h4>Admin</h4>
+        <ul class="nav flex-column">
+            <li class="nav-item"><a class="nav-link text-white" href="/admin/dashboard">Dashboard</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="/">Front End</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="/logout">Logout</a></li>
+        </ul>
+    </aside>
+    <main class="p-4 flex-grow-1">
+        <h2>Dashboard Analytics</h2>
+        <div class="row g-3 mb-4">
+            <div class="col-md-4"><div class="card p-3 shadow-sm"><h5>Total Vehicles</h5><p th:text="${totalVehicles}">0</p></div></div>
+            <div class="col-md-4"><div class="card p-3 shadow-sm"><h5>Total Bookings</h5><p th:text="${totalBookings}">0</p></div></div>
+            <div class="col-md-4"><div class="card p-3 shadow-sm"><h5>Total Users</h5><p th:text="${totalUsers}">0</p></div></div>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6"><canvas id="usageChart" height="200"></canvas></div>
+            <div class="col-md-6"><canvas id="revenueChart" height="200"></canvas></div>
+        </div>
+        <h4 class="mt-4">Most Rented Vehicle</h4>
+        <p th:text="${mostRentedVehicle}">N/A</p>
+        <div class="table-responsive mt-3">
+            <table class="table table-striped">
+                <thead><tr><th>#</th><th>Model</th><th>Type</th><th>Available</th><th>Price</th></tr></thead>
+                <tbody>
+                    <tr th:each="vehicle,iter : ${vehicles}">
+                        <td th:text="${iter.index+1}"></td>
+                        <td th:text="${vehicle.brand.name} + ' ' + ${vehicle.model}"></td>
+                        <td th:text="${vehicle.type}"></td>
+                        <td th:text="${vehicle.available}? 'Yes':'No'"></td>
+                        <td th:text="${vehicle.pricePerDay}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script>
+const usageCtx=document.getElementById('usageChart');
+if(usageCtx){new Chart(usageCtx,{type:'doughnut',data:{labels:['Booked','Available'],datasets:[{data:[65,35],backgroundColor:['#0d6efd','#198754']}]},options:{plugins:{legend:{position:'bottom'}}}});}
+const revenueCtx=document.getElementById('revenueChart');
+if(revenueCtx){new Chart(revenueCtx,{type:'bar',data:{labels:['Jan','Feb','Mar','Apr','May','Jun'],datasets:[{label:'Revenue',data:[1200,1700,1400,2000,2400,1800],backgroundColor:'#0d6efd'}]},options:{scales:{y:{beginAtZero:true}}}});}   
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Bookings</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+<h1>Bookings</h1>
+<a th:href="@{/admin/dashboard}">Back to Dashboard</a>
+<table border="1">
+    <tr><th>ID</th><th>Customer</th><th>Vehicle</th><th>From</th><th>To</th><th>Status</th><th>Actions</th></tr>
+    <tr th:each="b : ${bookings}">
+        <td th:text="${b.id}"></td>
+        <td th:text="${b.customer != null ? b.customer.email : 'N/A'}"></td>
+        <td th:text="${b.vehicle != null ? b.vehicle.model : 'N/A'}"></td>
+        <td th:text="${b.startDate}"></td>
+        <td th:text="${b.endDate}"></td>
+        <td th:text="${b.status}"></td>
+        <td>
+            <form th:action="@{/admin/bookings/update}" method="post">
+                <input type="hidden" name="id" th:value="${b.id}">
+                <select name="status">
+                    <option value="PENDING" th:selected="${b.status=='PENDING'}">PENDING</option>
+                    <option value="CONFIRMED" th:selected="${b.status=='CONFIRMED'}">CONFIRMED</option>
+                    <option value="CANCELLED" th:selected="${b.status=='CANCELLED'}">CANCELLED</option>
+                    <option value="COMPLETED" th:selected="${b.status=='COMPLETED'}">COMPLETED</option>
+                </select>
+                <button type="submit">Update</button>
+            </form>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

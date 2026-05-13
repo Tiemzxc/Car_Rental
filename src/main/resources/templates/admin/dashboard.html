@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark" style="background: linear-gradient(90deg, #8a2be2, #1e90ff);">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="/admin/dashboard">Admin Panel</a>
+        <div class="collapse navbar-collapse show">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link text-warning" th:href="@{/}">Home</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/admin/brands}">Brands</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/admin/vehicles}">Vehicles</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/admin/bookings}">Bookings</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<main class="container py-5">
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card p-4 mb-3">
+                <h5 class="card-title">Total Brands</h5>
+                <p class="display-6 text-primary" th:text="${brandCount}">0</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card p-4 mb-3">
+                <h5 class="card-title">Total Vehicles</h5>
+                <p class="display-6 text-success" th:text="${vehicleCount}">0</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card p-4 mb-3">
+                <h5 class="card-title">Total Bookings</h5>
+                <p class="display-6 text-danger" th:text="${bookingCount}">0</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card p-4 mb-3">
+                <h5 class="card-title">Testimonials</h5>
+                <p class="display-6 text-warning" th:text="${testimonialCount}">0</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card p-4 mb-3">
+                <h5 class="card-title">Contact Queries</h5>
+                <p class="display-6 text-info" th:text="${contactCount}">0</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card p-4 mb-3">
+                <h5 class="card-title">Subscribers</h5>
+                <p class="display-6 text-secondary" th:text="${subscriberCount}">0</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card p-4 mb-3">
+                <h5 class="card-title">Users</h5>
+                <p class="display-6 text-dark" th:text="${userCount}">0</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="card p-4 mt-4" style="border: 2px solid #00b0ff;">
+        <h4>Quick access</h4>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><a th:href="@{/admin/brands}">Manage Brands</a></li>
+            <li class="list-group-item"><a th:href="@{/admin/vehicles}">Manage Vehicles</a></li>
+            <li class="list-group-item"><a th:href="@{/admin/bookings}">View Bookings</a></li>
+            <li class="list-group-item"><a th:href="@{/admin/testimonials}">Manage Testimonials</a></li>
+            <li class="list-group-item"><a th:href="@{/admin/contact-queries}">Contact Queries</a></li>
+            <li class="list-group-item"><a th:href="@{/admin/users}">Users</a></li>
+            <li class="list-group-item"><a th:href="@{/admin/subscribers}">Subscribers</a></li>
+            <li class="list-group-item"><a th:href="@{/admin/page-content}">Page Content</a></li>
+        </ul>
+    </div>
+</main>
+
+<footer class="footer-custom text-white text-center py-3">
+    © 2026 CarRental Admin
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+    <li><a th:href="@{/admin/vehicles}">Manage Vehicles</a></li>
+    <li><a th:href="@{/admin/bookings}">View Bookings</a></li>
+    <li><a th:href="@{/admin/testimonials}">Manage Testimonials</a></li>
+    <li><a th:href="@{/admin/contact-queries}">Contact Queries</a></li>
+    <li><a th:href="@{/admin/users}">Users</a></li>
+    <li><a th:href="@{/admin/subscribers}">Subscribers</a></li>
+    <li><a th:href="@{/admin/page-content}">Page Content</a></li>
+</ul>
+</body>
+</html>
